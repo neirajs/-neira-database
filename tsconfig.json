@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "types": ["mocha"],
 		"lib": [
-			"esnext"
+			"esnext",
+      "DOM"
 		]
 	},
 	"include": [
