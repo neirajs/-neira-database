@@ -9,10 +9,13 @@
 		"sourceMap": true,
 		"declarationMap": true,
 		"moduleResolution": "node",
-    "resolveJsonModule": true,
-    "types": ["mocha"],
+		"resolveJsonModule": true,
+		"types": [
+			"mocha"
+		],
 		"lib": [
-			"esnext"
+			"esnext",
+			"DOM"
 		]
 	},
 	"include": [
