@@ -1,4 +1,4 @@
-import {expect} from "chai";
+import {assert, expect, should} from "chai";
 import { Table } from '../src/Table';
 
 describe("Table Test", () => {
@@ -12,8 +12,14 @@ describe("Table Test", () => {
 
     table.string('job_title').primaryKey();
     expect(table.toString()).eq('name VARCHAR(255), title VARCHAR(20), job_title VARCHAR(255) PRIMARY KEY');
-
-    // TODO: assert error exception
-    // expect(table.string('title')).throw(/duplicate/);
+    
+    table.string('unique').notNull().unique();
+    expect(table.toString()).eq('name VARCHAR(255), title VARCHAR(20), job_title VARCHAR(255) PRIMARY KEY, unique VARCHAR(255) UNIQUE NOT NULL');
   })
+
+  it("duplicate key", () => {
+    const table = new Table();
+    table.string('name');
+    assert.throw(() => { table.string('name') });
+  });
 });
